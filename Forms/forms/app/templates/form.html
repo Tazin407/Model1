@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<form method='post' action='./account/'>
+{% csrf_token  %}
+
+{{form | crispy}}
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+    {% comment %} <div class="mb-3">
+      <label for="exampleInputName" class="form-label">Name</label>
+      <input type="text" class="form-control" id="exampleInputName" aria-describedby="nameHelp" name='username'>
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name= 'email'>
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+
+    <select class="form-select" size="3" aria-label="Size 3 select example" name='select'>
+      <option selected>Open this select menu</option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </select>
+    
+    <button type="submit" class="btn btn-primary">Submit</button> {% endcomment %}
+  </form>
+
+{% endblock %}
