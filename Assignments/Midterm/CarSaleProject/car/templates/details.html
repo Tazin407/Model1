@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{%load crispy_forms_tags%}
+
+{%block content%}
+
+<div class='m-3' >
+
+    <img src="{{car.image.url}}" alt="">
+    <h1>{{car.name}}</h1>
+    <p>{{car.description}} </p>
+    <button class='btn btn-primary'disabled >{{car.brand.name}}</button>
+
+</div>
+
+<h1>{{comments | length}} comments found</h1>
+
+{% for comment in comments %}
+
+<div class='m-4' >
+    {{user.username}}
+    {{comment.text}}
+</div>
+
+
+{% endfor %}
+
+{%if user.is_authenticated%}
+
+<form action="" method='post' class='m-2'>
+    {% csrf_token %}
+    {{form | crispy}}
+    <button class='btn btn-warning' type='Submit'>Submit</button>
+    
+    </form>
+
+{% endif %}
+
+{% endblock %}
+

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{%load crispy_forms_tags%}
+
+
+{%block content%}
+
+<form action="" method='post' class='m-auto w-50'>
+{% csrf_token %}
+    {{form | crispy}}
+    <div class="text-center m-auto">
+        <small class="text-danger" >username: dummy <br> password: d@mmy123</small>
+      </div>
+    <button class='btn btn-warning' type='Submit'>Submit</button>
+</form>
+
+{% endblock %}
